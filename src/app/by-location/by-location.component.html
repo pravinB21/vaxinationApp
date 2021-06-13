@@ -1,0 +1,16 @@
+<div class="container text-center">
+    <div class="row">
+        <div class="col-xl-12">
+            <button class="btn btn-danger" style="width: 100%;" (click)="onClick()">Search Centers Near your location</button>
+        </div>
+    </div>
+</div><br>
+<div class="container">
+    <pagination-controls  (pageChange)="page = $event" class="pagin"></pagination-controls>
+    <ul *ngFor="let i of allCenters | paginate: { itemsPerPage: 10, currentPage: page,totalItems:totalLength}" class=" m-2 p-4 shadow">
+        <li><h6> Center Id: <b>{{i.center_id}}</b>  </h6></li>
+        <li><h6>Name: <b>{{i.name}}</b> </h6></li>
+        <li><h6><b>{{i.block_name}}</b> </h6></li>
+        <li><h6>Address: <b>{{i.location}},{{i.state_name}}</b> </h6></li>
+    </ul>
+</div>

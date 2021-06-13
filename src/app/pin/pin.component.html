@@ -1,0 +1,35 @@
+<div class="container-fluid d-flex ">
+    <input type="text" #pin class="form-control" placeholder="Enter your Pin">&nbsp;&nbsp;
+    <input type="date" #date class="form-control">&nbsp;&nbsp;
+    <button class="btn btn-danger" (click)="onClick(date.value,pin.value)">Search</button>
+</div>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="container d-flex justify-content-around ">
+                <div *ngFor="let i of allSessions" class="card shadow">
+                    <div class="card-body">
+                        <h5 class="text-center"><b>{{i.name}}</b></h5>
+                        <hr>
+                        <h6>Address: {{i.address}},{{i.block_name}},</h6>
+                        <h6>{{i.district_name}},{{i.state_name}},</h6>
+                        <h6>{{i.pincode}}</h6><br>
+                        <div class="d-flex justify-content-between">
+                            <h1 class="badge badge-primary">{{i.vaccine}}</h1>
+                            <h1 class="badge badge-danger">{{i.min_age_limit}}+</h1>
+                            <h1 class="badge badge-success">{{i.fee_type}}</h1>
+                        </div>
+                        <hr>
+                        <h6>Available slots</h6>
+                        <ul *ngFor="let s of i.slots" style="list-style-type: none;">
+                            <li>
+                                <h1 class="badge badge-primary">{{s}}</h1>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
